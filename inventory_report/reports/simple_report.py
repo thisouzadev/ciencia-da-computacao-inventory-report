@@ -6,15 +6,13 @@ class SimpleReport():
     def generate(arr):
         today = date.today().strftime("%Y-%m-%d")
         antiga = []
+        proxima = []
+        maior_quantidade = []
         for item in arr:
             if item["data_de_fabricacao"]:
                 antiga.append(item["data_de_fabricacao"])
-        proxima = []
-        for item in arr:
             if item["data_de_validade"] and item["data_de_validade"] > today:
                 proxima.append(item["data_de_validade"])
-        maior_quantidade = []
-        for item in arr:
             if item["nome_da_empresa"]:
                 maior_quantidade.append(item["nome_da_empresa"])
         counter_empresa = Counter(maior_quantidade)
