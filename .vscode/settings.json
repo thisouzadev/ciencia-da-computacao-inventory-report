@@ -8,5 +8,18 @@
     "python.formatting.blackArgs": [
         "-l 79"
     ],
-    "python.formatting.provider": "black"
+    "python.formatting.provider": "black",
+    "cSpell.words": [
+        "antiga",
+        "armazenamento",
+        "empresa",
+        "fabricacao",
+        "fabricação",
+        "instrucoes",
+        "mais",
+        "numero",
+        "produto",
+        "serie",
+        "validade"
+    ]
 }
