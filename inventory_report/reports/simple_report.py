@@ -3,7 +3,8 @@ from collections import Counter
 
 
 class SimpleReport():
-    def generate(arr):
+    @classmethod
+    def generate(cls, arr):
         today = date.today().strftime("%Y-%m-%d")
         antiga = []
         proxima = []

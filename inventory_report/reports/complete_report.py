@@ -1,24 +1,24 @@
-from datetime import date
 from collections import Counter
+from inventory_report.reports.simple_report import SimpleReport
 
 
 class CompleteReport():
-    def generate(arr):
-        today = date.today().strftime("%Y-%m-%d")
-        antiga = []
-        proxima = []
+    @classmethod
+    def generate(cls, arr):
+        simple_report = SimpleReport.generate(arr)
         maior_quantidade = []
+        empresa = ""
         for item in arr:
-            if item["data_de_fabricacao"]:
-                antiga.append(item["data_de_fabricacao"])
-            if item["data_de_validade"] and item["data_de_validade"] > today:
-                proxima.append(item["data_de_validade"])
             if item["nome_da_empresa"]:
                 maior_quantidade.append(item["nome_da_empresa"])
+
         counter_empresa = Counter(maior_quantidade)
-        Empresa = "Empresa com maior quantidade de produtos estocados:"
+        for item in counter_empresa:
+            empresa += f"- {item}: {counter_empresa[item]}\n"
+
+        print(empresa)
         return (
-            f"Data de fabricação mais antiga: {min(antiga)}\n"
-            f"Data de validade mais próxima: {min(proxima)}\n"
-            f"{Empresa} {max(counter_empresa)}\n"
+            f"{simple_report}\n"
+            f"Produtos estocados por empresa: \n"
+            f"{empresa}"
         )
