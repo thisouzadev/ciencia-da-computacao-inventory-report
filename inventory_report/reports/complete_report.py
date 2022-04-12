@@ -1,5 +1,5 @@
 from collections import Counter
-from inventory_report.reports.simple_report import SimpleReport 
+from inventory_report.reports.simple_report import SimpleReport
 
 
 class CompleteReport():
