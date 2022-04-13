@@ -7,7 +7,6 @@ class CsvImporter(Importer):
     def import_data(path):
         if "csv" in path:
             with open(path, 'r') as file:
-                reader = csv.DictReader(file)
-                return list(reader)
+                return list(csv.DictReader(file, delimiter=",", quotechar='"'))
         else:
             raise ValueError

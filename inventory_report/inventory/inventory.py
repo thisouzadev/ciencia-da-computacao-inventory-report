@@ -10,6 +10,7 @@ class Inventory():
     def import_data(cls, path, report_type):
         inventory_report = cls.get_extension(path)
         if report_type == "simples":
+            print(SimpleReport.generate(inventory_report))
             return SimpleReport.generate(inventory_report)
         else:
             return CompleteReport.generate(inventory_report)
@@ -23,3 +24,6 @@ class Inventory():
                 return json.load(file)
             else:
                 return xmltodict.parse(file.read())["dataset"]["record"]
+
+
+Inventory.import_data("inventory_report.data.inventory.csv", "simples")
