@@ -24,6 +24,3 @@ class Inventory():
                 return json.load(file)
             else:
                 return xmltodict.parse(file.read())["dataset"]["record"]
-
-
-# Inventory.import_data("inventory_report.data.inventory.csv", "simples")
